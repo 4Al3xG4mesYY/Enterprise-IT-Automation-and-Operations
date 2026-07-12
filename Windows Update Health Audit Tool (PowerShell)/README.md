@@ -38,16 +38,20 @@ _The issue was traced to corrupted Windows Update cache components._
 
 ### Remediation Steps
 #### Stop Update Services
-* net stop wuauserv
-* net stop cryptSvc
-* new stop bits
-* net stop msiserver
+```net stop wuauserv
+net stop cryptSvc
+new stop bits
+net stop msiserver```
 
 #### Reset Windows Update Cache
-* ren C:\Windows\SoftwareDistribution SoftwareDistribution.old
-* ren C:\Windows\System32\catroot2 catroot2.old
-Restart Services
-net start wuauservnet start cryptSvcnet start bitsnet start msiserverShow more lines
+```ren C:\Windows\SoftwareDistribution SoftwareDistribution.old
+ren C:\Windows\System32\catroot2 catroot2.old```
+
+#### Restart Services
+```net start wuauserv
+net start cryptSvc
+net start bits
+net start msiserver```
 
 ### Validation
 * Restart system
