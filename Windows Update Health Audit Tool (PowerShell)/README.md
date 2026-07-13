@@ -34,6 +34,7 @@ Several systems required Windows updates but experienced issues such as:
 ### Windows Update Analysis
 Investigated update failures and identified:
 `0x80080005(CO_E_SERVER_EXEC_FAILURE)`
+![Windows_updates_error](/docs/Windows_Update_Error.png)
 _The issue was traced to corrupted Windows Update cache components._
 
 ### Remediation Steps
