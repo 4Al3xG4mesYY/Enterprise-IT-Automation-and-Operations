@@ -59,11 +59,15 @@ net start cryptSvc
 net start bits
 net start msiserver
 ```
+![Windows_Remediation_Commands_part_1](/Windows%20Update%20Health%20Audit%20Tool%20(PowerShell)/docs/Windows_Remediation_Commands_part_1.png)
+![Windows_Remediation_Commands_part_2](/Windows%20Update%20Health%20Audit%20Tool%20(PowerShell)/docs/Windows_Remediation_Commands_part_2.png)
 
 ### Validation
 * Restart system
 * Re-run Windows Updates
+![Update_Windows_status](/Windows%20Update%20Health%20Audit%20Tool%20(PowerShell)/docs/Update_Windows_status.png)
 * Verify successful update installation
+![After_Windows_Updates_completed](/Windows%20Update%20Health%20Audit%20Tool%20(PowerShell)/docs/After_Windows_Updates_completed.png)
 
 ### Results
 * Multiple endpoints successfully updated
