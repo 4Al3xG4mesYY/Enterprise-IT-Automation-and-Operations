@@ -1,5 +1,4 @@
 ﻿# Stop Windows Update and related services
-
 Stop-Service -Name wuauserv -Force
 Stop-Service -Name cryptSvc -Force
 Stop-Service -Name bits -Force
