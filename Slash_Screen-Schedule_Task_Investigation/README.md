@@ -14,7 +14,7 @@ Reviewing whether a scheduled task was preventing normal shell initialization.
 
 During troubleshooting, I discovered that elevated administrative privileges were required to modify the affected Registry settings. Attempts to elevate using my current credentials resulted in the error:
 
-  "The requested operation requires elevation."
+> "The requested operation requires elevation."
 
 This indicated that my account did not have sufficient permissions to make the required system changes.
 
