@@ -36,6 +36,9 @@ OS Version: 10.0.26200
 [PASS] No reboot required
 ```
 
+## Example Output
+![Windows_health_status_output](/Windows%20Health%20Status%20Audit%20Tool%20(PowerShell)/docs/windows_health_status_output.png)
+
 ## Future Improvements
 * Export results to CSV
 * Export results to HTML reports
