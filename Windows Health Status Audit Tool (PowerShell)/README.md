@@ -34,4 +34,11 @@ OS Version: 10.0.26200
 [PASS] Latest patch installed within 30 days
 [PASS] Internet connectivity verified
 [PASS] No reboot required
-``
+```
+
+## Future Improvements
+* Export results to CSV
+* Export results to HTML reports
+* Additional Windows service checks
+* STIG compliance integration
+* Multi-system auditing
