@@ -18,6 +18,13 @@ Projects are based on lessons learned while supporting Windows systems, patch ma
 
 ## Current Projects
 
-- Windows Update Remediation Tool
-- Windows Health Status Audit Tool
-- STIG Compliance Audits (In Progress)
+### Windows Update Remediation Tool
+PowerShell-based remediation workflow for Windows Update failures caused by corrupted update components.
+
+### Windows Health Status Audit Tool
+System health validation tool that evaluates Windows Update status, BITS status, storage utilization, patch recency, connectivity, and reboot requirements.
+
+### Splash Screen / Shell Investigation
+Troubleshooting case involving scheduled task behavior, shell initialization issues, privilege escalation limitations, and administrative account troubleshooting.
+
+### STIG Compliance Audits (In Progress)
