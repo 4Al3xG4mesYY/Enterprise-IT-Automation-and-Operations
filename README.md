@@ -6,7 +6,6 @@ This repository contains technical projects inspired by real-world enterprise IT
 Projects are based on lessons learned while supporting Windows systems, patch management, system health validation, and operational workflows. All documentation has been generalized and does not contain proprietary, confidential, or customer-specific information.
 
 ## Skills Demonstrated
-
 - Windows Administration
 - PowerShell Automation
 - Troubleshooting
