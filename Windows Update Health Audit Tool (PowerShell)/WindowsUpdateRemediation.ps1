@@ -21,7 +21,7 @@ try{
         Stop-Service wuauserv -Force
     }
 } catch {
-    Write-Warning "Failed to stop Windows Update Service."
+    Write-Host "[FAIL] Failed to stop Windows Update Service." -ForegroundColor Red
 }
 try{
     if (Get-Service cryptSvc | Where-Object {$_.Status -eq "Stopped"}) {
@@ -31,7 +31,7 @@ try{
         Stop-Service cryptSvc -Force
     }
 } catch {
-    Write-Warning "Failed to stop Cryptographic Services."
+    Write-Host "[FAIL] Failed to stop Cryptographic Services." -ForegroundColor Red
 }
 try{
     if (Get-Service bits | Where-Object {$_.Status -eq "Stopped"}) {
@@ -41,7 +41,7 @@ try{
         Stop-Service bits -Force
     }
 } catch {
-    Write-Warning "Failed to stop Background Intelligence Transfer Service."
+    Write-Host "[FAIL] Failed to stop Background Intelligence Transfer Service."-ForegroundColor Red
 }
 try{
     if (Get-Service msiserver | Where-Object {$_.Status -eq "Stopped"}) {
@@ -51,12 +51,12 @@ try{
         Stop-Service msiserver -Force
     }
 } catch {
-    Write-Warning "Failed to stop Windows Installer Service."
+    Write-Host "[FAIL] Failed to stop Windows Installer Service." -ForegroundColor Red
 }
 $current++
 Write-Progress -Activity "Windows Update Remediation" -Status "Stopping Services" `
                -PercentComplete (($current / $steps) * 100)
-Write-Host "Stopping services has completed." -ForegroundColor Cyan
+Write-Host "[PASS] Services stopped successfully." -ForegroundColor Green
 Start-sleep 2
 
 # Rename SoftwareDistribution and catroot2 to clear cache
@@ -76,46 +76,46 @@ Write-Progress -Activity "Windows Update Remediation" `
                -Status "Clearing Update Cache" `
                -PercentComplete (($current / $steps) * 100)
 Start-Sleep 2
-Write-Host "Process of renaming folders and clearing cache has completed." -ForegroundColor Cyan
+Write-Host "[PASS] Windows Update cache cleared." -ForegroundColor Green
 
 # Restart services
 Write-Host "Process of starting services started..." -ForegroundColor Cyan
 try{
     Start-Service -Name wuauserv
 } catch {
-    Write-Warning "Failed to start Windows Update Service."
+    Write-Host "[FAIL] Failed to start Windows Update Service." -ForegroundColor Red
 }
 try{
     Start-Service -Name cryptSvc 
 } catch {
-    Write-Warning "Failed to start Cryptographic Services."
+    Write-Host "[FAIL] Failed to start Cryptographic Services." -ForegroundColor Red
 }
 try{
     Start-Service -Name bits
 } catch {
-    Write-Warning "Failed to start Background Intelligence Transfer Service."
+    Write-Host "[FAIL] Failed to start Background Intelligence Transfer Service." -ForegroundColor Red
 }
 try{
     Start-Service -Name msiserver
 } catch {
-    Write-Warning "Failed to start Windows Installer Service."
+    Write-Host "[FAIL] Failed to start Windows Installer Service." -ForegroundColor Red
 }
 $current++
 Write-Progress -Activity "Windows Update Remediation" `
                -Status "Starting services" `
                -PercentComplete (($current / $steps) * 100)
-Write-Host "Process of starting services ended..." -ForegroundColor Cyan
+Write-Host "[PASS] Services restarted successfully." -ForegroundColor Green
 Start-Sleep 2
 
 $reboot = Read-Host "Restart now? (Y/N)"
 if ($reboot -eq "Y") {
     Restart-Computer
 }
-Write-Progress -Activity "Windows Update Remediation" -Completed
-
+Write-Progress -Activity "Windows Update Remediation" -Status "Completed" -PercentComplete 100
 Start-Sleep 2
+Write-Progress -Activity "Windows Update Remediation" -Completed
 $current = 0
 
-Write-Host "Windows Update reset completed." -ForegroundColor Green
+Write-Host "[PASS] Windows Update reset completed." -ForegroundColor Green
 Read-Host "Press any key to exit"
 Stop-Transcript
