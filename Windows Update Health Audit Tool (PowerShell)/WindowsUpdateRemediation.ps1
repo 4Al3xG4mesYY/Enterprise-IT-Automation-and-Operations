@@ -5,13 +5,17 @@ $current++
 Write-Progress -Activity "Windows Update Remediation" `
                -Status "Remediation Starting" `
                -PercentComplete (($current / $steps) * 100)
+Start-Sleep 2
+
 $LogFile = ".\WindowsUpdateRepair.log"
 Start-Transcript -Path $LogFile
-Write-Output "============================= Windows Update Remediation Tool =============================="
-Write-Output "Process of stopping services started..."
+Write-Host "============================="  -ForegroundColor Cyan
+Write-Host "Windows Update Remediation Tool" -ForegroundColor Cyan
+Write-Host "=============================" -ForegroundColor Cyan
+Write-Host "Process of stopping services started..." -ForegroundColor Cyan
 try{
     if (Get-Service wuauserv | Where-Object {$_.Status -eq "Stopped"}) {
-    Write-Host "Windows Update service already stopped. Skipping."
+    Write-Host "Windows Update service already stopped. Skipping." -ForegroundColor Yellow
     }
     else {
         Stop-Service wuauserv -Force
@@ -21,7 +25,7 @@ try{
 }
 try{
     if (Get-Service cryptSvc | Where-Object {$_.Status -eq "Stopped"}) {
-    Write-Host "Cryptographic Services already stopped. Skipping."
+    Write-Host "Cryptographic Services already stopped. Skipping." -ForegroundColor Yellow
     }
     else {
         Stop-Service cryptSvc -Force
@@ -31,7 +35,7 @@ try{
 }
 try{
     if (Get-Service bits | Where-Object {$_.Status -eq "Stopped"}) {
-    Write-Host "Cryptographic Services already stopped. Skipping."
+    Write-Host "Background Intelligence Transfer Service already stopped. Skipping." -ForegroundColor Yellow
     }
     else {
         Stop-Service bits -Force
@@ -41,7 +45,7 @@ try{
 }
 try{
     if (Get-Service msiserver | Where-Object {$_.Status -eq "Stopped"}) {
-    Write-Host "Cryptographic Services already stopped. Skipping."
+    Write-Host "Windows Installer Service already stopped. Skipping."-ForegroundColor Yellow
     }
     else {
         Stop-Service msiserver -Force
@@ -52,7 +56,8 @@ try{
 $current++
 Write-Progress -Activity "Windows Update Remediation" -Status "Stopping Services" `
                -PercentComplete (($current / $steps) * 100)
-Write-Output "Stopping services has completed."
+Write-Host "Stopping services has completed." -ForegroundColor Cyan
+Start-sleep 2
 
 # Rename SoftwareDistribution and catroot2 to clear cache
 Write-Output "Process of renaming folders and clearing cache..."
@@ -70,10 +75,11 @@ $current++
 Write-Progress -Activity "Windows Update Remediation" `
                -Status "Clearing Update Cache" `
                -PercentComplete (($current / $steps) * 100)
-Write-Output "Process of renaming folders and clearing cache has completed."
+Start-Sleep 2
+Write-Host "Process of renaming folders and clearing cache has completed." -ForegroundColor Cyan
 
 # Restart services
-Write-Output "Process of starting services started..."
+Write-Host "Process of starting services started..." -ForegroundColor Cyan
 try{
     Start-Service -Name wuauserv
 } catch {
@@ -98,13 +104,18 @@ $current++
 Write-Progress -Activity "Windows Update Remediation" `
                -Status "Starting services" `
                -PercentComplete (($current / $steps) * 100)
-Write-Output "Process of starting services ended..."
+Write-Host "Process of starting services ended..." -ForegroundColor Cyan
+Start-Sleep 2
 
 $reboot = Read-Host "Restart now? (Y/N)"
 if ($reboot -eq "Y") {
     Restart-Computer
 }
 Write-Progress -Activity "Windows Update Remediation" -Completed
+
+Start-Sleep 2
+$current = 0
+
 Write-Host "Windows Update reset completed." -ForegroundColor Green
 Read-Host "Press any key to exit"
 Stop-Transcript
