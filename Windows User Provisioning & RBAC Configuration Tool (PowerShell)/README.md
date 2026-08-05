@@ -34,3 +34,27 @@ The script was inspired by real-world enterprise deployment workflows where temp
 * Role-Based Access Control (RBAC)
 * User Validation
 * Privilege Assignment
+
+### Workflow
+
+### Example Output
+#### Duplicate User
+
+#### Successful Creation
+
+
+### Future Improvements
+* Custom username input
+* User removal option
+* CSV logging
+* Automatic password generation
+* Domain account support
+* Account expiration options
+* Remote device provisioning support
+
+### Technologies Used
+* PowerShell
+* Windows Local Users and Groups
+* Windows Security Groups
+* RBAC Concepts
+* Windows Remote Desktop Services
