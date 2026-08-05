@@ -2,6 +2,22 @@
 $steps = 4
 $current = 0
 $current++
+
+if(
+    -not (
+        [Security.Principal.WindowsPrincipal]`
+        [Security.Principal.WindowsIdentity]::GetCurrent()
+    ).IsInRole(
+        [Security.Principal.WindowsBuiltinRole]::Administrator
+    )
+)
+{
+    Write-Host "[FAIL] Run PowerShell as Administrator." `
+        -ForegroundColor Red
+
+    exit
+}
+
 Write-Progress -Activity "Windows Update Remediation" `
                -Status "Remediation Starting" `
                -PercentComplete (($current / $steps) * 100)
