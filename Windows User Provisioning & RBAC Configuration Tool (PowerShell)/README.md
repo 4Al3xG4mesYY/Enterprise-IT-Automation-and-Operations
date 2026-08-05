@@ -36,7 +36,7 @@ The script was inspired by real-world enterprise deployment workflows where temp
 * Privilege Assignment
 
 ### Workflow
-![WorkFlow of the script](/Windows%20User%20Provisioning%20%26%20RBAC%20Configuration%20Tool%20(PowerShell)/docs/workflow.draw.io.png)
+![WorkFlow of the script](/Windows%20User%20Provisioning%20%26%20RBAC%20Configuration%20Tool%20(PowerShell)/docs/workflow.drawio.png)
 ### Example Output
 #### Duplicate User
 ![Duplicated User](/Windows%20User%20Provisioning%20%26%20RBAC%20Configuration%20Tool%20(PowerShell)/docs/duplicated_user.png)
