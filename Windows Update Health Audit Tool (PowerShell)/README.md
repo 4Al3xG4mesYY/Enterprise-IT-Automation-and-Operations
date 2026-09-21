@@ -74,3 +74,21 @@ net start msiserver
 * Corrupted update cache issue resolved
 * Standard remediation workflow documented
 * Future automation opportunities identified
+
+### Additional Findings
+During later testing, Windows Update failures persisted even after successfully:
+* Restarting update services
+* Resetting SoftwareDistribution
+* Resetting catroot2
+* Verifying service availability
+* Verifying connectivity to Microsoft update endpoints
+
+Through collaboration with senior technicians, it was determined that manually selecting:
+> **Check Online for Updates**
+within the Windows Update interface successfully initiated update detection and installation, while the standard "Check" or "Retry" workflow continued to fail.
+
+### Lessons Learned
+* Not all update failures originate from corrupted caches.
+* Successful remediation requires validation, not just execution.
+* Service, cache, and connectivity checks help eliminate common causes.
+* Operational workflows may behave differently even when services are healthy.
