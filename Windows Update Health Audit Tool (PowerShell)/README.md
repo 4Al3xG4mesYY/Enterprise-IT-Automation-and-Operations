@@ -84,7 +84,8 @@ During later testing, Windows Update failures persisted even after successfully:
 * Verifying connectivity to Microsoft update endpoints
 
 Through collaboration with senior technicians, it was determined that manually selecting:
-> **Check Online for Updates** <
+> **Check Online for Updates**
+
 within the Windows Update interface successfully initiated update detection and installation, while the standard "Check" or "Retry" workflow continued to fail.
 
 ### Lessons Learned
