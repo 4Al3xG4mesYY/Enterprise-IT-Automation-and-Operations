@@ -36,8 +36,11 @@ Disabling the feature reduces the possibility of sensitive information leaving e
 Example Outputs:
 ========= Copilot Tool Removal ==========
 Detected Copilot Package...
+
 Proceed Copilot Package Removal...
+
 Copilot Successfully Removed!
+
 Copilot Removal Completed!
 
 ## Skills Demonstrated
