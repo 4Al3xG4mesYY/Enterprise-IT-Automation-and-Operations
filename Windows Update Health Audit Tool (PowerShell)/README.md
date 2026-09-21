@@ -76,7 +76,7 @@ net start msiserver
 * Future automation opportunities identified
 
 ### Additional Findings
-During later testing, Windows Update failures (0x80244022 error) persisted even after successfully:
+During later testing, Windows Update failures (`0x80244022 error`) persisted even after successfully:
 * Restarting update services
 * Resetting SoftwareDistribution
 * Resetting catroot2
