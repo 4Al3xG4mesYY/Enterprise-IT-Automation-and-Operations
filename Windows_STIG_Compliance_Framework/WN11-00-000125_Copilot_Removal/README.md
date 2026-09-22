@@ -34,7 +34,9 @@ Disabling the feature reduces the possibility of sensitive information leaving e
 5. Report compliance status
 
 Example Outputs:
+
 ========= Copilot Tool Removal ==========
+
 Detected Copilot Package...
 
 Proceed Copilot Package Removal...
