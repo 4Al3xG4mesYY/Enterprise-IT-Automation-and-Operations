@@ -1,4 +1,4 @@
-# DNS Validation Tool
+<img width="4032" height="1964" alt="image" src="https://github.com/user-attachments/assets/27f6a9ee-ba5e-4ea4-bb3d-f92f357d9721" /># DNS Validation Tool
 Develop a Python-based infrastructure validation tool capable of:
 * Identifying reachable hosts
 * Performing reverse DNS validation (IP → Hostname)
@@ -17,6 +17,25 @@ _The tool was developed during an enterprise subnet inventory and DNS validation
 * CSV Reporting
 * Classification-Based Results
 
+
+### Methodology
+The tool performs infrastructure validation through three independent checks:
+1. ICMP Reachability Validation
+  * Determines whether a host responds to network probes.
+2. Reverse DNS Validation
+  * Resolves an IP address to a hostname.
+3. Forward DNS Validation
+  * Resolves the hostname back to an IP address and verifies consistency.
+Results from all three checks are used to classify hosts into operational categories and identify potential DNS inconsistencies.
+
+### Classification Logic
+**Result**	**Description**
+Healthy	| Reachable with valid forward and reverse DNS
+Review	| DNS inconsistency or additional validation required
+Active Host, No DNS Records	| Reachable host without DNS records
+No Response / No DNS Records | Unreachable host with no DNS records
+![excel_output.png](docs/dns_validation_colorcoded_output.png)
+
 ### Automated Testing
 The classification logic was validated using pytest unit tests.
 
@@ -26,6 +45,9 @@ Test cases included:
 * Active Host, No DNS Records
 * No Response / No DNS Records
 ![Pytest](docs/dns_validation_testing.png)
+
+### Sample console output
+![sample_console_output](docs/dns_validation_processing.png)
 
 ### Lessons Learned
 During testing, I discovered that relying solely on reverse DNS (PTR) records could lead to inaccurate conclusions about asset status.
