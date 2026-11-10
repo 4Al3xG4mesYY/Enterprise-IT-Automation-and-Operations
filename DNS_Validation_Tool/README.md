@@ -1,4 +1,4 @@
-<img width="4032" height="1964" alt="image" src="https://github.com/user-attachments/assets/27f6a9ee-ba5e-4ea4-bb3d-f92f357d9721" /># DNS Validation Tool
+# DNS Validation Tool
 Develop a Python-based infrastructure validation tool capable of:
 * Identifying reachable hosts
 * Performing reverse DNS validation (IP → Hostname)
