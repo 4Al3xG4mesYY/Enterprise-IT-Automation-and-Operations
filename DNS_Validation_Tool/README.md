@@ -18,8 +18,15 @@ _The tool was developed during an enterprise subnet inventory and DNS validation
 * Classification-Based Results
 
 ### Lessons Learned
-I learned to check false positives while communicating with my senior about this task with making a proper report so both them and the corporate side would.
-Initially the code only checked reverse DNS and not the forward dns, this caused confusion when looking at a device that had a reverse dns in one scan.
-Then another scan it only had the forward dns when scanning it's IP address and using nslookup. Afterwards, I was able to produce a deliverable.
-I was also able to develop a methodology that my senior was able to understand and added coloring for more clarity. 
 
+During testing, I discovered that relying solely on reverse DNS (PTR) records could lead to inaccurate conclusions about asset status.
+
+Initial versions of the tool only validated reverse DNS records. After manually validating results using ping and nslookup, I identified cases where reverse DNS records existed but forward DNS validation failed, creating false positives during infrastructure review.
+
+To improve accuracy, the tool was redesigned to independently validate:
+
+ICMP reachability
+Reverse DNS (IP → Hostname)
+Forward DNS (Hostname → IP)
+
+This enhancement improved reporting accuracy, reduced false assumptions, and introduced a classification methodology that clearly communicated findings to both technical and business stakeholders.
