@@ -47,7 +47,7 @@ Test cases included:
 ![Pytest](docs/dns_validation_testing.png)
 
 ### Sample console output
-![sample_console_output](docs/dns_validation_processing.png)
+![sample_console_output](docs/dns_validation_console.png)
 
 ### Lessons Learned
 During testing, I discovered that relying solely on reverse DNS (PTR) records could lead to inaccurate conclusions about asset status.
