@@ -25,7 +25,7 @@ Test cases included:
 * Review
 * Active Host, No DNS Records
 * No Response / No DNS Records
-![Pytest](DNS_Validation_Tool/docs/dns_validation_testing.png)
+![Pytest](docs/dns_validation_testing.png)
 
 ### Lessons Learned
 During testing, I discovered that relying solely on reverse DNS (PTR) records could lead to inaccurate conclusions about asset status.
