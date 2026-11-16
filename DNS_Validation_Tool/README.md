@@ -45,6 +45,7 @@ Test cases included:
 * Review
 * Active Host, No DNS Records
 * No Response / No DNS Records
+
 ![Pytest](docs/dns_validation_testing.png)
 
 ### Sample console output
