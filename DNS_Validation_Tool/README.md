@@ -30,10 +30,10 @@ Results from all three checks are used to classify hosts into operational catego
 
 ### Classification Logic
 **Result**	**Description**
-Healthy	| Reachable with valid forward and reverse DNS
-Review	| DNS inconsistency or additional validation required
-Active Host, No DNS Records	| Reachable host without DNS records
-No Response / No DNS Records | Unreachable host with no DNS records
+* Healthy	| Reachable with valid forward and reverse DNS
+* Review	| DNS inconsistency or additional validation required
+* Active Host, No DNS Records	| Reachable host without DNS records
+* No Response / No DNS Records | Unreachable host with no DNS records
 ![excel_output.png](docs/dns_validation_colorcoded_output.png)
 
 ### Automated Testing
